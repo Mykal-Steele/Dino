@@ -1163,7 +1163,7 @@ MonoBehaviour:
   randomizationFactor: 4
   gameOver: {fileID: 753723105}
   liftAmount: 1.3
-  upsideDownChance: 45
+  upsideDownChance: 35
   slowModifier: 0.5
   maxSlowModifier: 1
   slowModifierIncreaseDuration: 20
