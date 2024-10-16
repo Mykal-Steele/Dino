@@ -22,8 +22,12 @@ public class Score : MonoBehaviour
     // Transition speed
     public float transitionSpeed = 1.0f;
 
+    [SerializeField]
+    private int totalScore;
+
     void Start()
     {
+        totalScore = PlayerPrefs.GetInt("TotalScore", 0); 
         // Initialize the target color to the current background color
         targetColor = mainCamera.backgroundColor;
     }
@@ -50,6 +54,9 @@ public class Score : MonoBehaviour
         if (other.gameObject == trigger)
         {
             score++;
+            totalScore++;
+            PlayerPrefs.SetInt("TotalScore", totalScore); // Save the total score
+            PlayerPrefs.Save(); 
             UpdateScoreText(); // Update the text when score is incremented
 
             // Check if the score is a multiple of 10
@@ -65,7 +72,7 @@ public class Score : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + score; // Update the text with the current score
+            scoreText.text = "Score: " + score + "\nTotal Score: " + totalScore; // Update the text with the current score
         }
     }
 
